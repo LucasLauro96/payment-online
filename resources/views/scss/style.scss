@@ -1,0 +1,52 @@
+@import 'color-palette';
+@import 'common';
+
+
+#acesso {
+    width: 100vw; 
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    .accordion {
+        position: relative;
+        width: 50%;
+
+        .accordion-body {            
+            .button-login {
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+#login {
+    width: 100vw; 
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    .form-login {
+        background: $branco;
+        padding: 20px;
+        position: relative;
+        min-width: 300px;
+        width: 40%;
+
+        .form-header {
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-button {
+            text-align: right;
+        }
+    }
+}

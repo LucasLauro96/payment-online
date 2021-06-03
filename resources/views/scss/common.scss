@@ -1,0 +1,13 @@
+body {
+    background: $azul-claro;
+}
+
+.btn-primary {
+    background: $azul;
+    border-color: $azul;
+    
+    &:hover{
+        background: $azul-escuro;
+        border-color: $azul-escuro;
+    }
+}

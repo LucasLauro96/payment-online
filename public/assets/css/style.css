@@ -1,1 +1,53 @@
+body {
+  background: #CAE1FF;
+}
 
+.btn-primary {
+  background: #5CACEE;
+  border-color: #5CACEE;
+}
+.btn-primary:hover {
+  background: #4F94CD;
+  border-color: #4F94CD;
+}
+
+#acesso {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
+#acesso .accordion {
+  position: relative;
+  width: 50%;
+}
+#acesso .accordion .accordion-body .button-login {
+  margin-left: 20px;
+}
+
+#login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
+#login .form-login {
+  background: #FFFFFF;
+  padding: 20px;
+  position: relative;
+  min-width: 300px;
+  width: 40%;
+}
+#login .form-login .form-header {
+  margin-bottom: 40px;
+}
+#login .form-login .form-group {
+  margin-bottom: 20px;
+}
+#login .form-login .form-button {
+  text-align: right;
+}

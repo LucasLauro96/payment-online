@@ -16,3 +16,6 @@ mix.sass('resources/views/scss/style.scss', 'assets/css/style.css');
 // Impotação do Bootstrap 5
 mix.postCss('node_modules/bootstrap/dist/css/bootstrap.min.css', 'assets/css/bootstrap.min.css');
 mix.js('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'assets/js/bootstrap.bundle.min.js');
+
+// Importação Bootstrap Icons
+mix.postCss('node_modules/bootstrap-icons/font/bootstrap-icons.css', 'assets/css/bootstrap-icons.css');

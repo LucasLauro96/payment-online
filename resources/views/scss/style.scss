@@ -50,3 +50,29 @@
         }
     }
 }
+
+#dashboard {
+    background: $branco;
+    height: 100vh;
+
+    .dashboard-header {
+        padding: 20px 0;
+
+        .buttons {
+            .btn {
+                height: 140px;
+                width: 240px;
+                font-size: 20px;
+                font-weight: bold;
+
+                &:last-child {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+
+    .saldo {
+        margin-left: 20px;
+    }
+}

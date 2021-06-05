@@ -1,5 +1,6 @@
 {
     "/assets/js/bootstrap.bundle.min.js": "/assets/js/bootstrap.bundle.min.js",
+    "/assets/css/bootstrap-icons.css": "/assets/css/bootstrap-icons.css",
     "/assets/css/bootstrap.min.css": "/assets/css/bootstrap.min.css",
     "/assets/css/style.css": "/assets/css/style.css"
 }

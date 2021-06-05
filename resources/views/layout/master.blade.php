@@ -9,6 +9,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-icons.css') }}">
 
     <title>Pagamentos Online</title>
 </head>

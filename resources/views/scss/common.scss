@@ -2,6 +2,11 @@ body {
     background: $azul-claro;
 }
 
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 .btn-primary {
     background: $azul;
     border-color: $azul;
@@ -9,5 +14,24 @@ body {
     &:hover{
         background: $azul-escuro;
         border-color: $azul-escuro;
+    }
+
+    &:focus {
+        background: $azul-escuro;
+    }
+}
+
+
+.btn-secondary {
+    background: $verde-claro;
+    border-color: $verde-claro;
+    
+    &:hover{
+        background: $verde-escuro;
+        border-color: $verde-escuro;
+    }
+
+    &:focus {
+        background: $verde-escuro;
     }
 }

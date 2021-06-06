@@ -24,3 +24,6 @@ Route::get('/login', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/cadastro/{tipo}', 'App\Http\Controllers\UserController@Cadastro')->name('user.cadastro');
+Route::post('/cadastro/user/', 'App\Http\Controllers\UserController@CadastroPost')->name('user.cadastroPost');

@@ -11,7 +11,66 @@
         </div>
 
         <div class="dashboard-body">
-            historico
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Saldo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-success">
+                        <td>1</td>
+                        <td>Adicionado</td>
+                        <td>R$ 50,00</td>
+                        <td>R$ 150,00</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>2</td>
+                        <td>Enviado (estabelecimento)</td>
+                        <td>R$ -50,00</td>
+                        <td>R$ 100,00</td>
+                    </tr>
+                    <tr class="table-success">
+                        <td>1</td>
+                        <td>Adicionado</td>
+                        <td>R$ 50,00</td>
+                        <td>R$ 150,00</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>2</td>
+                        <td>Enviado (estabelecimento)</td>
+                        <td>R$ -50,00</td>
+                        <td>R$ 100,00</td>
+                    </tr>
+                    <tr class="table-success">
+                        <td>1</td>
+                        <td>Adicionado</td>
+                        <td>R$ 50,00</td>
+                        <td>R$ 150,00</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>2</td>
+                        <td>Enviado (estabelecimento)</td>
+                        <td>R$ -50,00</td>
+                        <td>R$ 100,00</td>
+                    </tr>
+                    <tr class="table-success">
+                        <td>1</td>
+                        <td>Adicionado</td>
+                        <td>R$ 50,00</td>
+                        <td>R$ 150,00</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>2</td>
+                        <td>Enviado (estabelecimento)</td>
+                        <td>R$ -50,00</td>
+                        <td>R$ 100,00</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 @stop

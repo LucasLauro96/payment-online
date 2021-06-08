@@ -13,8 +13,8 @@
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                     data-bs-parent="#accordionLogin">
                     <div class="accordion-body d-flex justify-content-center">
-                        <a href="#" class="btn btn-primary button-login">Acesso</a>
-                        <a href="#" class="btn btn-primary button-login">Cadastro</a>
+                        <a href="{{ route('login.index', 'cnpj') }}" class="btn btn-primary button-login">Acesso</a>
+                        <a href="{{ route('user.index', 'cnpj') }}" class="btn btn-primary button-login">Cadastro</a>
                     </div>
                 </div>
             </div>
@@ -28,8 +28,8 @@
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                     data-bs-parent="#accordionLogin">
                     <div class="accordion-body d-flex justify-content-center">
-                        <a href="#" class="btn btn-primary button-login">Acesso</a>
-                        <a href="#" class="btn btn-primary button-login">Cadastro</a>
+                        <a href="{{ route('login.index', 'cpf') }}" class="btn btn-primary button-login">Acesso</a>
+                        <a href="{{ route('user.index', 'cpf') }}" class="btn btn-primary button-login">Cadastro</a>
                     </div>
                 </div>
             </div>

@@ -13,17 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'App\Http\Controllers\GeneralController@Main')->middleware('islogged');
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login/{tipo}', 'App\Http\Controllers\LoginController@Get')->name('login.index')->middleware('islogged');
+Route::post('/login', 'App\Http\Controllers\LoginController@Post')->name('login.post')->middleware('islogged');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
-Route::get('/cadastro/{tipo}', 'App\Http\Controllers\UserController@Cadastro')->name('user.cadastro');
-Route::post('/cadastro/user/', 'App\Http\Controllers\UserController@CadastroPost')->name('user.cadastroPost');
+Route::get('/cadastro/{tipo}', 'App\Http\Controllers\UserController@Get')->name('user.index')->middleware('islogged');
+Route::post('/cadastro/user/', 'App\Http\Controllers\UserController@Post')->name('user.post')->middleware('islogged');

@@ -6,7 +6,7 @@
             <div class="form-header">
                 <h1>Cadastre-se</h1>
             </div>
-            <form action="{{route('user.cadastroPost')}}" method="POST">
+            <form action="{{route('user.post')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="nome" class="form-label">Nome</label>

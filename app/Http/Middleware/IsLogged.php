@@ -8,10 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class IsLogged
 {
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check()) {
-            return redirect()->route('dashboard');
+        if (!Auth::check()) {
+            return redirect()->route('index');
         }
         return $next($request);
     }

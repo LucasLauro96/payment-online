@@ -7,7 +7,10 @@
                 <button type="button" class="btn btn-secondary"><i class="bi bi-piggy-bank"></i> Adicionar Saldo</button>
                 <button type="button" class="btn btn-secondary"><i class="bi bi-cash"></i> Fazer Transferência</button>
             </div>
-            <h1 class="saldo">Meu Saldo é: R$100,00</h1>
+            <div>
+                <h4 class="saldo">Bem vindo, {{ $user->name }}</h4>
+                <h5 class="saldo">Meu Saldo é: R$100,00</h5>
+            </div>
         </div>
 
         <div class="dashboard-body">

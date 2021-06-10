@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -21,6 +20,7 @@ class UserController extends Controller
         $User->email = $request->email;
         $User->cpf_cnpj = isset($request->cpf)? $request->cpf : $request->cnpj;
         $User->password = Hash::make($request->password);
+        $User->balance = 0;
         $User->save();
     }
 }

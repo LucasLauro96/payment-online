@@ -12,7 +12,9 @@ const mix = require('laravel-mix');
 */
 
 mix.sass('resources/views/scss/style.scss', 'assets/css/style.css');
+mix.js('resources/js/dashboard.js', 'assets/js/dashboard.js');
 
+mix.js('node_modules/jquery/dist/jquery.min.js', 'assets/js/jquery.min.js');
 // Impotação do Bootstrap 5
 mix.postCss('node_modules/bootstrap/dist/css/bootstrap.min.css', 'assets/css/bootstrap.min.css');
 mix.js('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'assets/js/bootstrap.bundle.min.js');

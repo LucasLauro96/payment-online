@@ -22,3 +22,4 @@ Route::get('/cadastro/{tipo}', 'App\Http\Controllers\UserController@Get')->name(
 Route::post('/cadastro/user/', 'App\Http\Controllers\UserController@Post')->name('user.post')->middleware('notislogged');
 
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@Index')->name('dashboard')->middleware('islogged');
+Route::post('/adicionar_dinheiro', 'App\Http\Controllers\TransactionController@AddMoney')->name('dashboard')->middleware('islogged');

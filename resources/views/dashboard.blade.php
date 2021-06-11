@@ -23,55 +23,8 @@
                         <th scope="col">Saldo</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="table-success">
-                        <td>1</td>
-                        <td>Adicionado</td>
-                        <td>R$ 50,00</td>
-                        <td>R$ 150,00</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <td>2</td>
-                        <td>Enviado (estabelecimento)</td>
-                        <td>R$ -50,00</td>
-                        <td>R$ 100,00</td>
-                    </tr>
-                    <tr class="table-success">
-                        <td>1</td>
-                        <td>Adicionado</td>
-                        <td>R$ 50,00</td>
-                        <td>R$ 150,00</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <td>2</td>
-                        <td>Enviado (estabelecimento)</td>
-                        <td>R$ -50,00</td>
-                        <td>R$ 100,00</td>
-                    </tr>
-                    <tr class="table-success">
-                        <td>1</td>
-                        <td>Adicionado</td>
-                        <td>R$ 50,00</td>
-                        <td>R$ 150,00</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <td>2</td>
-                        <td>Enviado (estabelecimento)</td>
-                        <td>R$ -50,00</td>
-                        <td>R$ 100,00</td>
-                    </tr>
-                    <tr class="table-success">
-                        <td>1</td>
-                        <td>Adicionado</td>
-                        <td>R$ 50,00</td>
-                        <td>R$ 150,00</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <td>2</td>
-                        <td>Enviado (estabelecimento)</td>
-                        <td>R$ -50,00</td>
-                        <td>R$ 100,00</td>
-                    </tr>
+                <tbody id="transactionsTable">
+                    
                 </tbody>
             </table>
         </div>
@@ -85,9 +38,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="alert alert-danger" role="alert" id="alertAddMoney" style="display: none">
-                        
-                    </div>
+                    <div class="alert alert-danger" role="alert" id="alertAddMoney" style="display: none"></div>
                     <div class="form-group">
                         <label class="form-label">Valor: </label>
                         <input type="number" class="form-control" id="modalAddMoneyInput">
@@ -109,6 +60,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="alert alert-danger" role="alert" id="alertTransfer" style="display: none"></div>
                     <div class="form-group">
                         <label class="form-label">Enviar para: </label>
                         <select id="selectTransfer" class="form-control">
@@ -125,7 +77,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Enviar</button>
+                    <button type="button" class="btn btn-primary" id="submitModalTransfer">Enviar</button>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         $transactions = Transaction::where('useridfrom', $user->id)
-                                    ->where('useridto', $user->id)
+                                    ->orWhere('useridto', $user->id)
                                     ->get();
 
         $users = User::whereNotIn('id', [$user->id])->get();
@@ -22,5 +22,28 @@ class DashboardController extends Controller
             ->with('user', $user)
             ->with('transactions', $transactions)
             ->with('users', $users);
+    }
+
+    public function TransactionsHistory(){
+        $user = Auth::user();
+
+        $transactions = Transaction::where('useridfrom', $user->id)
+                                    ->orWhere('useridto', $user->id)
+                                    ->join('users AS t', 'transactions.useridto', '=', 't.id')
+                                    ->join('users AS f', 'transactions.useridfrom', '=', 'f.id')
+                                    ->select('f.name AS userFrom', 't.name AS userTo', 'transactions.*')
+                                    ->get();
+        
+        
+        $data = array(
+            'transactions' => $transactions,
+            'userid' => $user->id
+        );
+
+        $response = array(
+            'response' => $data
+        );
+                                    
+        return response($response, 200);;
     }
 }

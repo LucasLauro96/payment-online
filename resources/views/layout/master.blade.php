@@ -18,14 +18,15 @@
 </head>
 
 <body>
+    <!-- JS -->
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
 
     
     @yield('content')
     
 
-    <!-- JS -->
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 </body>
 
 </html>

@@ -32,8 +32,7 @@ $(document).ready(function () {
             statusCode: {
                 200: () => {
                     alert( "Saldo adicionado" );
-                    cleanTable(table);
-                    transactionsTable();
+                    document.location.reload();
                 },
                 500: () => {
                     alertReturn.text('O servidor reportou um erro, tente novamente.');
@@ -84,8 +83,7 @@ $(document).ready(function () {
             statusCode: {
                 200: () => {
                     alert( "Transferencia realizada" );
-                    cleanTable(table);
-                    transactionsTable();
+                    document.location.reload(true);
                 },
                 406: () => {
                     alert('Não foi permitida a transação');
@@ -101,55 +99,4 @@ $(document).ready(function () {
     $( "#submitModalTransfer" ).click( () => {
         transferMoney();
     });
-
-    const transactionsTable = async () => {
-
-        jQuery.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-        });
-
-        jQuery.ajax({
-            method: "GET",
-            url: "dashboard/transacao",
-            statusCode: {
-                200: (res) => {
-                    $.each( res, function( key, value ) {
-                        const iduser = value.userid;
-                        
-                        $.each( value.transactions, function( k, v ) {
-                            
-                            //Adicionado Saldo
-                            if(v.useridfrom == v.useridto){
-                                const row = '<tr class="table-success"><td>' + v.id + '</td><td>Dinheiro adicionado</td><td>' + v.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</td><td>' + v.balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</td></tr>';
-                                table.append(row);
-                            }
-                            
-                            //Transferindo
-                            if(v.useridfrom != v.useridto && v.useridto != iduser){
-                                const row = '<tr class="table-danger"><td>' + v.id + '</td><td>Enviado para ' + v.userTo +  '</td><td>' + v.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</td><td>' + v.balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</td></tr>';
-                                table.append(row);
-
-                            }
-
-                            //Recebendo
-                            if(v.useridfrom != iduser && v.useridto == iduser){
-                                const row = '<tr class="table-success"><td>' + v.id + '</td><td>Pagamento recebido de ' + v.userFrom + '</td><td>' + v.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</td><td>' + v.balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</td></tr>';
-                                table.append(row);
-                            }
-                        });
-                    });
-                },
-                500: () => {
-                    alert('O servidor reportou um erro, tente novamente.');
-                }
-            }
-        });
-    }
-
-    const cleanTable = async (table) => {
-        await table.remove();
-    }
-    transactionsTable();
 });

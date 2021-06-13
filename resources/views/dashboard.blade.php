@@ -20,11 +20,34 @@
                         <th scope="col">#</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Valor</th>
-                        <th scope="col">Saldo</th>
                     </tr>
                 </thead>
-                <tbody id="transactionsTable">
-                    
+                <tbody>
+                    @foreach ($transactions as $transaction)
+                        @if ($transaction->useridfrom == $transaction->useridto)
+                            <tr class="table-success">
+                                <td>{{ $transaction->id }}</td>
+                                <td>Depósito</td>
+                                <td>R$ {{ number_format($transaction->value, 2, ',', '.') }}</td>
+                            </tr>
+                        @endif
+
+                        @if ($transaction->useridfrom != $transaction->useridto && $transaction->useridto != $user->id)
+                            <tr class="table-danger">
+                                <td>{{ $transaction->id }}</td>
+                                <td>Transferência para {{ $transaction->userTo }}</td>
+                                <td>R$ {{ number_format($transaction->value, 2, ',', '.') }}</td>
+                            </tr>
+                        @endif
+
+                        @if($transaction->useridfrom != $user->id && $transaction->useridto == $user->id)
+                            <tr class="table-success">
+                                <td>{{ $transaction->id }}</td>
+                                <td>Recebido de {{ $transaction->userFrom }}</td>
+                                <td>R$ {{ number_format($transaction->value, 2, ',', '.') }}</td>
+                            </tr>
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -15,9 +15,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function Get($tipo)
+    public function Get()
     {
-        return view('login', compact('tipo'));
+        return view('login');
     }
 
     public function Post(Request $request){

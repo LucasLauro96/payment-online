@@ -5,11 +5,14 @@
         <div class="dashboard-header d-flex justify-content-start">
             <div class="buttons">
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addMoney"><i class="bi bi-piggy-bank"></i> Adicionar Saldo</button>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#Transfer"><i class="bi bi-cash"></i> Fazer Transferência</button>
+                @if (strlen($user->cpf_cnpj) == 14)
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#Transfer"><i class="bi bi-cash"></i> Fazer Transferência</button>
+                @endif
             </div>
-            <div>
-                <h4 class="saldo">Bem vindo, {{ $user->name }}</h4>
-                <h5 class="saldo">Meu Saldo é: R${{ number_format($user->balance, 2, ',', '.')  }}</h5>
+            <div class="saldo">
+                <h4>Bem vindo, {{ $user->name }}</h4>
+                <h5>Meu Saldo é: R${{ number_format($user->balance, 2, ',', '.')  }}</h5>
+                <a href="{{ route('user.logout') }}" class="btn btn-danger">Sair</a>
             </div>
         </div>
 

@@ -1,7 +1,5 @@
 global.$ = global.jQuery = require("jquery");
 $(document).ready(function () {
-    const table = $('#transactionsTable');
-
 
     //Adiciona Saldo
     const addMoney = () => {
@@ -83,7 +81,7 @@ $(document).ready(function () {
             statusCode: {
                 200: () => {
                     alert( "Transferencia realizada" );
-                    document.location.reload(true);
+                    // document.location.reload();
                 },
                 406: () => {
                     alert('Não foi permitida a transação');

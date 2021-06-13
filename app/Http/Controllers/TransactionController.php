@@ -40,21 +40,19 @@ class TransactionController extends Controller
     {
         $user = Auth::user();
 
-        if ($request->value > $user->balance) {
+        if ($request->value > $user->balance)
             return response('Not authorized, does not have enough balance', 406);
-        }
 
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6'
+            CURLOPT_URL => 'http://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6'
         ]);
         $response = json_decode(curl_exec($curl));
         curl_close($curl);
 
-        if($response->message != 'Autorizado'){
+        if(!isset($response->message) && $response->message != 'Autorizado')
             return response('Not authorized', 406);
-        }
 
         DB::beginTransaction();
         try {

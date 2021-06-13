@@ -18,13 +18,11 @@ class UserController extends Controller
     {
 
         foreach(User::all() as $User){
-            if($User->email == $request->email){
+            if($User->email == $request->email)
                 return redirect()->route('user.index', 'user')->with('warning', 'Email já cadastrado, tente com outro email');
-            }
 
-            if($User->cpf_cnpj == $request->cpf_cnpj){
+            if($User->cpf_cnpj == $request->cpf_cnpj)
                 return redirect()->route('user.index', 'user')->with('warning', 'Documento já cadastrado, tente com outro documento');
-            }
         }
 
         $User = new User();
@@ -37,10 +35,17 @@ class UserController extends Controller
 
         $values = $request->only(['email', 'password']);
 
-        if(Auth::attempt($values)){
+        if(Auth::attempt($values))
             return redirect()->route('dashboard');
-        } else {
-            // return redirect()->route('user.index', 'user')->with('warning', '');
-        }
+    }
+
+    public function Logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

@@ -38,6 +38,7 @@ class TransactionController extends Controller
     public function TransferMoney(Request $request)
     {
         $user = Auth::user();
+        $notification = 'Success';
 
         if ($request->value > $user->balance)
             return response('Not authorized, does not have enough balance', 406);
@@ -50,7 +51,7 @@ class TransactionController extends Controller
         $response = json_decode(curl_exec($curl));
         curl_close($curl);
 
-        if(!isset($response->message) && $response->message != 'Autorizado')
+        if (!isset($response->message) && $response->message != 'Autorizado')
             return response('Not authorized', 406);
 
         DB::beginTransaction();
@@ -73,7 +74,21 @@ class TransactionController extends Controller
             $transaction->save();
 
             DB::commit();
-            return response($transaction, 200);
+
+            $curl = curl_init();
+            curl_setopt_array($curl, [
+                CURLOPT_RETURNTRANSFER => 1,
+                CURLOPT_URL => 'http://o4d9z.mocklab.io/notify'
+            ]);
+            $response = json_decode(curl_exec($curl));
+            curl_close($curl);
+
+            if (!isset($response->message) && $response->message != 'Success')
+                $notification = 'unstable notification';
+
+            return response(array(
+                'transaction' => $transaction,
+                'notification' => $notification), 200);
         } catch (\Exception $e) {
             DB::rollback();
             return response($e, 500);;

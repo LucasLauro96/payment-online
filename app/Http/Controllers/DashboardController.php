@@ -20,7 +20,7 @@ class DashboardController extends Controller
                                     ->orderBy('transactions.id', 'DESC')
                                     ->get();
 
-        $users = User::whereNotIn('id', [$user->id])->get();
+        $users = User::whereNotIn('id', [$user->id])->orderBy('name', 'DESC')->get();
         
         return view('dashboard')
             ->with('user', $user)

@@ -81,7 +81,7 @@ $(document).ready(function () {
             statusCode: {
                 200: () => {
                     alert( "Transferencia realizada" );
-                    // document.location.reload();
+                    document.location.reload();
                 },
                 406: () => {
                     alert('Não foi permitida a transação');

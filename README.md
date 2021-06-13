@@ -28,6 +28,7 @@ Sistema desenvolvido por Lucas Lauro
     >DB_USERNAME=root
     >
     >DB_PASSWORD=123456
-    
+
+- Crie um banco de dados com o nome informado no ".env"
 - Execute o comando "php artisan migrate" para criar as tabelas em seu banco de dados
 - Agora execute o comando "php artisan serve" para rodar o projeto em sua maquina

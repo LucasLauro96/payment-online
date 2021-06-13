@@ -18,7 +18,6 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('useridfrom');
             $table->unsignedBigInteger('useridto');
             $table->float('value', 8, 2);
-            $table->float('balance', 8, 2);
             $table->foreign('useridfrom')->references('id')->on('users');
             $table->foreign('useridto')->references('id')->on('users');
             $table->timestamps();

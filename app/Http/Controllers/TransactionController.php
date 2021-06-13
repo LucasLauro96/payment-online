@@ -23,7 +23,6 @@ class TransactionController extends Controller
 
             $transaction = new Transaction;
             $transaction->value = $request->value;
-            $transaction->balance = $user->balance;
             $transaction->useridfrom = $user->id;
             $transaction->useridto = $user->id;
             $transaction->save();
@@ -69,7 +68,6 @@ class TransactionController extends Controller
 
             $transaction = new Transaction;
             $transaction->value = $request->value;
-            $transaction->balance = $userTo->balance;
             $transaction->useridfrom = $userFrom->id;
             $transaction->useridto = $request->payer;
             $transaction->save();
